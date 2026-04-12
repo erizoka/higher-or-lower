@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:higher_or_lower/components/widgets/streak_widget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -35,20 +36,50 @@ class _HomePageState extends State<HomePage> {
               textStyle: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 60,
-                color: Colors.white
               )
             ),
             ),
             Text(
               'Adivinhe se a próxima carta\né maior ou menor!',
               textAlign: TextAlign.center,
-              style: GoogleFonts.manrope(
-                textStyle: TextStyle(
-                  fontSize: 20,
-                  color: Colors.white
-                )
+              style: GoogleFonts.manrope(textStyle: TextStyle(fontSize: 20)),
+            ),
+            SizedBox(height: 50),
+            ElevatedButton(
+              onPressed: (){},
+              style: ElevatedButton.styleFrom(
+                fixedSize: Size.fromWidth(150),
+                foregroundColor: Colors.white,
+                padding: EdgeInsets.zero,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+              ),
+              child: Ink(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [
+                      Colors.pinkAccent.shade700,
+                      Colors.deepPurple,
+                    ],
+                  ),
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                  constraints: const BoxConstraints(minWidth: 150),
+                  alignment: Alignment.center,
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children:  [
+                      Icon(Icons.play_arrow),
+                      SizedBox(width: 10),
+                      Text('Jogar', style: TextStyle(fontSize: 18)),
+                    ],
+                  ),
+                ),
               ),
             ),
+            SizedBox(height: 30),
+            StreakWidget()
           ]
         ),
       ),
