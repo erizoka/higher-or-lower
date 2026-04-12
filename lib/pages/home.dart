@@ -63,7 +63,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             SizedBox(height: 30),
-            StreakWidget()
+            StreakWidget(hasTrophy: true, text: 'Melhor Streak',)
           ]
       ),
     );

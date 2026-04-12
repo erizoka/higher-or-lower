@@ -29,9 +29,9 @@ class GamePage extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    StreakWidget(),
+                    StreakWidget(hasTrophy: false, text: 'Streak Atual',),
                     SizedBox(width: 25,),
-                    StreakWidget()
+                    StreakWidget(hasTrophy: true, text: 'Melhor',)
                   ],
                 ),
               ),
