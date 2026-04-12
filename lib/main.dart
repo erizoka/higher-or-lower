@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:higher_or_lower/pages/home.dart';
+import 'package:flutter/services.dart';
+import 'package:get/get.dart';
+import 'package:higher_or_lower/routes/app_pages.dart';
 
 void main() {
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp])
+      .then((_) => runApp(const HigherOrLower()));
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class HigherOrLower extends StatelessWidget {
+  const HigherOrLower({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Higher or Lower',
       theme: ThemeData(
         colorScheme: .fromSeed(
@@ -22,7 +27,8 @@ class MyApp extends StatelessWidget {
             displayColor: Colors.white
         ),
       ),
-      home: const HomePage(),
+      initialRoute: AppRoutes.splash,
+      getPages: AppPages.pages,
     );
   }
 }
