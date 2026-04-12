@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:higher_or_lower/components/widgets/streak_widget.dart';
+import 'package:higher_or_lower/components/widgets/title_widget.dart';
+
+import '../components/gradient_background.dart';
+import '../routes/app_pages.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -12,33 +17,12 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        width: double.infinity,
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment(1.1, -0.4),
-            colors: [
-              Theme.of(context).colorScheme.primary,
-              Theme.of(context).colorScheme.secondary,
-            ],
-          )
-        ),
-        child: Column(
+    return GradientBackground(
+      child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text('🃏', style: TextStyle(fontSize: 100)),
-            Text(
-           'Higher or Lower',
-            textAlign: TextAlign.center,
-            style: GoogleFonts.archivo(
-              textStyle: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 60,
-              )
-            ),
-            ),
+            TitleWidget(fontSize: 60),
             Text(
               'Adivinhe se a próxima carta\né maior ou menor!',
               textAlign: TextAlign.center,
@@ -46,7 +30,7 @@ class _HomePageState extends State<HomePage> {
             ),
             SizedBox(height: 50),
             ElevatedButton(
-              onPressed: (){},
+              onPressed: () => Get.toNamed(AppRoutes.game),
               style: ElevatedButton.styleFrom(
                 fixedSize: Size.fromWidth(150),
                 foregroundColor: Colors.white,
@@ -81,7 +65,6 @@ class _HomePageState extends State<HomePage> {
             SizedBox(height: 30),
             StreakWidget()
           ]
-        ),
       ),
     );
   }
