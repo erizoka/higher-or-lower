@@ -17,6 +17,10 @@ class MyApp extends StatelessWidget {
           seedColor: Color(0xff35157b),
           secondary: Color(0xff3c02b8),
         ),
+        textTheme: TextTheme.of(context).apply(
+            bodyColor: Colors.white,
+            displayColor: Colors.white
+        ),
       ),
       home: const HomePage(),
     );
