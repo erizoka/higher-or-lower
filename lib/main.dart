@@ -3,8 +3,11 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:higher_or_lower/routes/app_pages.dart';
 
+import 'controller/cards_controller.dart';
+
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  Get.put(CardsController());
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp])
       .then((_) => runApp(const HigherOrLower()));
