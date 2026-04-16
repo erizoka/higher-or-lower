@@ -9,6 +9,7 @@ class GradientBackground extends StatelessWidget {
     return Scaffold(
       body: Container(
           width: double.infinity,
+          height: double.infinity,
           decoration: BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.topLeft,
