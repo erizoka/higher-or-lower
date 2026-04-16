@@ -4,7 +4,13 @@ import 'package:google_fonts/google_fonts.dart';
 class StreakWidget extends StatelessWidget {
   final bool hasTrophy;
   final String text;
-  const StreakWidget({super.key, required this.hasTrophy, required this.text});
+  final int streak;
+  const StreakWidget({
+    super.key,
+    required this.hasTrophy,
+    required this.text,
+    required this.streak
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +50,7 @@ class StreakWidget extends StatelessWidget {
                   ),
                   FittedBox(
                     fit: BoxFit.scaleDown,
-                    child: Text('7', style: GoogleFonts.roboto(
+                    child: Text(streak.toString(), style: GoogleFonts.roboto(
                         textStyle: TextStyle(fontSize: 30, fontWeight: FontWeight.bold))
                     ),
                   )
