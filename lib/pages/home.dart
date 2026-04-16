@@ -5,6 +5,7 @@ import 'package:higher_or_lower/components/widgets/streak_widget.dart';
 import 'package:higher_or_lower/components/widgets/title_widget.dart';
 
 import '../components/gradient_background.dart';
+import '../controller/cards_controller.dart';
 import '../routes/app_pages.dart';
 
 class HomePage extends StatefulWidget {
@@ -15,6 +16,15 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final controller = Get.find<CardsController>();
+  late int bestStreak;
+
+  @override
+  void initState() {
+    super.initState();
+    bestStreak = controller.storage.read('best_streak') ?? 0;
+  }
+
   @override
   Widget build(BuildContext context) {
     return GradientBackground(
@@ -63,7 +73,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             SizedBox(height: 30),
-            StreakWidget(hasTrophy: true, text: 'Melhor Streak',)
+            StreakWidget(hasTrophy: true, text: 'Melhor Streak', streak: bestStreak)
           ]
       ),
     );
