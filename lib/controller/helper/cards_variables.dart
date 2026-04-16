@@ -9,6 +9,8 @@ mixin CardsVariables {
   late AnimationController cardFlipController;
   late AnimationController confettiController;
   late AnimationController resultController;
+  late AnimationController versusController;
+  late Animation<double> versusAnimation;
   late Animation<double> cardFlipAnimation;
   late Animation<double> confettiAnimation;
   late Animation<double> resultAnimation;
