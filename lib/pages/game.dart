@@ -29,7 +29,7 @@ class GamePage extends StatelessWidget {
                 style: GoogleFonts.manrope(textStyle: TextStyle(fontSize: 12)),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 30),
+                padding: const EdgeInsets.symmetric(vertical: 20),
                 child: Obx(() => Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -48,7 +48,7 @@ class GamePage extends StatelessWidget {
                 ),
               )),
               CardStackVersus(),
-              SizedBox(height: 30,),
+              SizedBox(height: 10,),
               GuessButton(
                 isUp: true,
                 onPressed: () async { await controller.handleGuess(true);}
