@@ -6,12 +6,14 @@ import '../../model/deck_card.dart';
 mixin CardsVariables {
   final storage = GetStorage();
 
-  late AnimationController cardFlipController;
+  late AnimationController currentCardFlipController;
+  late AnimationController newCardFlipController;
   late AnimationController confettiController;
   late AnimationController resultController;
   late AnimationController versusController;
   late Animation<double> versusAnimation;
-  late Animation<double> cardFlipAnimation;
+  late Animation<double> currentCardFlipAnimation;
+  late Animation<double> newCardFlipAnimation;
   late Animation<double> confettiAnimation;
   late Animation<double> resultAnimation;
 
