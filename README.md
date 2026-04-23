@@ -44,8 +44,8 @@ Um jogo de cartas desafiador desenvolvido em Flutter, onde o objetivo é adivinh
 
 ### Splash e Home
 <p>
-  <img src="assets/assets-readme/splash.gif" alt="Splash Screen" width="220" align="top"/>
-  <img src="assets/assets-readme/home.png" alt="Tela Inicial" width="220" align="top"/>
+  <img src="assets/assets-readme/splash.gif" alt="Splash Screen" width="220" />
+  <img src="assets/assets-readme/home.png" alt="Tela Inicial" height="390"/>
 </p>
 
 ### Feedback e Animações
