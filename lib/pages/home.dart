@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage> {
             ),
             SizedBox(height: 50),
             ElevatedButton(
-              onPressed: () => Get.toNamed(AppRoutes.game),
+              onPressed: controller.checkConnectionAndRedirect,
               style: ElevatedButton.styleFrom(
                 fixedSize: Size.fromWidth(150),
                 foregroundColor: Colors.white,

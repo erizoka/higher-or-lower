@@ -1,6 +1,8 @@
-import 'package:flutter/animation.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:higher_or_lower/api/deck_of_card_repository.dart';
+import 'package:higher_or_lower/routes/app_pages.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
 
 import '../model/deck.dart';
 import 'helper/cards_variables.dart';
@@ -17,6 +19,12 @@ class CardsController extends GetxController
         await setDeck();
       }
     });
+
+    connectionListener = connectionChecker.onStatusChange.listen((status) {
+      if (status == InternetConnectionStatus.disconnected) {
+        checkConnectionAndRedirect();
+      }
+    });
   }
 
   @override
@@ -28,6 +36,24 @@ class CardsController extends GetxController
     initAnimations();
   }
 
+  void checkConnectionAndRedirect() async {
+    final bool isConnected = await connectionChecker.hasConnection;
+    if (isConnected) {
+      Get.toNamed(AppRoutes.game);
+    } else {
+      if (Get.currentRoute != AppRoutes.home) {
+        Get.offNamed(AppRoutes.home);
+      }
+      Get.snackbar(
+        'Sem conexão',
+        'Por favor, verifique sua conexão com a internet.',
+        icon: Icon(Icons.wifi_off, color: Colors.white),
+        backgroundColor: Colors.red.shade700,
+        colorText: Colors.white,
+      );
+    }
+  }
+
   @override
   void dispose() {
     super.dispose();
@@ -36,6 +62,8 @@ class CardsController extends GetxController
     confettiController.dispose();
     resultController.dispose();
     versusController.dispose();
+    connectionChecker.dispose();
+    connectionListener.cancel();
   }
 
   Future<void> setDeck() async {

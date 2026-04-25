@@ -1,10 +1,16 @@
 import 'package:flutter/animation.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
 import '../../model/deck_card.dart';
+
+enum GameResult {win, lose, none}
 
 mixin CardsVariables {
   final storage = GetStorage();
+  final connectionChecker = InternetConnectionChecker.instance;
+
+  late dynamic connectionListener;
 
   late AnimationController currentCardFlipController;
   late AnimationController newCardFlipController;
@@ -27,5 +33,3 @@ mixin CardsVariables {
   Rx<bool> isRevealing = false.obs;
   Rx<GameResult> gameResult = GameResult.none.obs;
 }
-
-enum GameResult {win, lose, none}
