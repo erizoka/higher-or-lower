@@ -17,13 +17,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final controller = Get.find<CardsController>();
-  late int bestStreak;
-
-  @override
-  void initState() {
-    super.initState();
-    bestStreak = controller.storage.read('best_streak') ?? 0;
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +66,12 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             SizedBox(height: 30),
-            StreakWidget(hasTrophy: true, text: 'Melhor Streak', streak: bestStreak)
+            Obx(() =>
+                StreakWidget(
+                    hasTrophy: true, text: 'Melhor Streak',
+                    streak: controller.bestStreak.value
+                )
+            )
           ]
       ),
     );
